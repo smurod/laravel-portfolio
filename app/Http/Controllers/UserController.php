@@ -46,4 +46,9 @@ class UserController extends Controller
         return redirect()->route('user.index');
     }
 
+    public function test(){
+        return view('test');
+    }
+
+
 }
