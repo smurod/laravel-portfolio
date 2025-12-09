@@ -33,4 +33,8 @@ Route::get('tasks/{task}/edit', EditController::class)->name('tasks.edit');
 Route::put('tasks/{task}', UpdateController::class)->name('tasks.update');
 Route::delete('tasks/{task}', DeleteController::class)->name('tasks.destroy');
 
+Route::get('/test', function () {
+    return 'Test page';
+});
+
 require __DIR__.'/auth.php';
