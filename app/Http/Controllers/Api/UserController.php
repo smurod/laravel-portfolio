@@ -29,7 +29,28 @@ class UserController extends Controller
         }
         return response()->json([
             'success' => true,
-            'data' => $user
+                'data' => $user
         ]);
     }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:6',
+        ]);
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => bcrypt($validated['password'])
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Пользователь создан',
+            'data' => $user
+        ], 201);
+    }
+
 }
