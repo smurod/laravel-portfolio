@@ -48,4 +48,41 @@ class PostController extends Controller
 
     }
 
+    public  function  update(Request $request, $id){
+        $post = Post::find($id);
+        if(!$post){
+            return response()->json([
+                'status' => false,
+                'message' => 'Post not found'
+            ],404);
+        }
+
+        $validated = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'user_id' => 'required'
+        ]);
+        $post->update($validated);
+        return response()->json([
+            'status' => true,
+            'message' => 'Post has been updated',
+            'data' => $post
+        ]);
+    }
+
+    public function destroy($id){
+        $post = Post::find($id);
+        if(!$post){
+            return response()->json([
+                'status' => false,
+                'message' => 'Post not found'
+            ],404);
+        }
+        $post->delete();
+        return response()->json([
+            'status' => true,
+            'message' => 'Post has been deleted'
+        ], 200);
+    }
+
 }
