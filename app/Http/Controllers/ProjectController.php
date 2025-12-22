@@ -37,7 +37,7 @@ class ProjectController extends Controller
             'link_url.*' => 'required|url',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
             'status_id' => 'required|exists:statuses,id',
-            'tags' => 'nullable',
+            'tags.*' => 'nullable',
             'category_id' => 'required|exists:categories,id',
 
         ],[

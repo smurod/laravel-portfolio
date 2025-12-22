@@ -140,7 +140,7 @@
                             <div class="col-12">
                                 <div class="course-item bg-main-25 rounded-16 p-12 h-100 border border-neutral-30 list-view">
                                     <div class="course-item__thumb rounded-12 overflow-hidden position-relative">
-                                        <a href="{{route('project-details', $project)}}" class="w-100 h-100">
+                                        <a href="{{route('project-details', $project->id)}}" class="w-100 h-100">
                                             @if($project->image)
                                                 <img src="{{asset('storage/' . $project->image)}}" class="course-item__img rounded-12 cover-img transition-2">
                                             @else
@@ -154,7 +154,7 @@
                                     <div class="course-item__content flex-grow-1">
                                         <div class="">
                                             <h4 class="mb-28">
-                                                <a href="course-details.html" class="link text-line-2">{{$project->title}} 1 </a>
+                                                <a href="{{route('project-details', $project->id)}}" class="link text-line-2">{{$project->title}} 1 </a>
                                             </h4>
                                             <div class="flex-between gap-8 flex-wrap mb-16">
                                                 <div class="flex-align gap-8">

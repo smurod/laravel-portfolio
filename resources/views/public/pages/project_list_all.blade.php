@@ -77,7 +77,7 @@
                         <div class="course-item__content">
                             <div class="">
                                 <h4 class="mb-28">
-                                    <a href="course-details.html" class="link text-line-2">{{$project->title}}</a>
+                                    <a href="{{route('project-details', $project->id)}}" class="link text-line-2">{{$project->title}}</a>
                                 </h4>
                                 <div class="flex-between gap-8 flex-wrap mb-16">
                                     <div class="flex-align gap-8">

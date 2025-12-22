@@ -87,13 +87,19 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Теги</label>
+                    <label class="form-label">Теги</label><br>
                     <input
-
-                        name="tags"
+                        id="tags"
+                        class="form-control"
+                        name="tags[]"
                         autofocus
                     />
                 </div>
+                <script>
+                    var input = document.querySelector('input[id="tags"]');
+                    // initialize Tagify on the above input node reference
+                    new Tagify(input)
+                </script>
 
 
             </div>

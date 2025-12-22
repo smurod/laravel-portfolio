@@ -767,41 +767,32 @@
                             </div>
                             <div class="border-bottom border-neutral-40 pb-24 mb-24 flex-between flex-wrap gap-16">
                                 <div class="flex-align gap-12">
-                                    <span class="text-neutral-700 text-2xl d-flex"> <i class="ph ph-chart-pie"></i></span>
-                                    <span class="text-neutral-700 text-lg fw-normal">Ссылки</span>
-                                </div>
-                                <span class="text-lg fw-medium text-neutral-700"></span>
-                            </div>
-
-                            <div class="border-bottom border-neutral-40 pb-24 mb-24 flex-between flex-wrap gap-16">
-                                <div class="flex-align gap-12">
-                                    <span class="text-neutral-700 text-2xl d-flex"> <i class="ph ph-question"></i> </span>
-                                    <span class="text-neutral-700 text-lg fw-normal"></span>
-                                </div>
-                                <span class="text-lg fw-medium text-neutral-700"></span>
-                            </div>
-                            <div class="border-bottom border-neutral-40 pb-24 mb-24 flex-between flex-wrap gap-16">
-                                <div class="flex-align gap-12">
-                                    <span class="text-neutral-700 text-2xl d-flex"> <i class="ph ph-clock"></i> </span>
-                                    <span class="text-neutral-700 text-lg fw-normal"></span>
-                                </div>
-                                <span class="text-lg fw-medium text-neutral-700"></span>
-                            </div>
-                            <div class="border-bottom border-neutral-40 pb-24 mb-24 flex-between flex-wrap gap-16">
-                                <div class="flex-align gap-12">
-                                    <span class="text-neutral-700 text-2xl d-flex"> <i class="ph ph-users"></i> </span>
-                                    <span class="text-neutral-700 text-lg fw-normal"></span>
-                                </div>
-                                <span class="text-lg fw-medium text-neutral-700"></span>
-                            </div>
-                            <div class="border-bottom border-neutral-40 pb-24 mb-24 flex-between flex-wrap gap-16">
-                                <div class="flex-align gap-12">
                                     <span class="text-neutral-700 text-2xl d-flex"> <i class="ph ph-certificate"></i> </span>
-                                    <span class="text-neutral-700 text-lg fw-normal"></span>
+                                    <span class="text-neutral-700 text-lg fw-normal">Ссылки:</span><br>
+
+                        @if(!empty($project->links))
+                                <ul>
+                                    @foreach($project->links as $type => $url)
+                                        <li>
+                                            <strong>{{ ucfirst($type) }}:</strong>
+                                            @if(is_array($url))
+                                                <ul>
+                                                    @foreach($url as $link)
+                                                        <li><a href="{{ $link }}" target="_blank">{{ $link }}</a></li>
+                                                    @endforeach
+                                                </ul>
+                                            @else
+                                                <a href="{{ $url }}" target="_blank">{{ $url }}</a>
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                <p>Не указано</p>
+                            @endif
                                 </div>
                                 <span class="text-lg fw-medium text-neutral-700"></span>
                             </div>
-
                             <div class="border-bottom border-neutral-40 pb-24 mb-24 flex-between flex-wrap gap-16">
                                 <div class="flex-align gap-12">
                                     <span class="text-neutral-700 text-2xl d-flex"> <i class="ph ph-user-circle"></i> </span>

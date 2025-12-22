@@ -286,11 +286,7 @@
     }
 </script>
 
-<script>
-    var input = document.querySelector('input[name=tags]');
-    // initialize Tagify on the above input node reference
-    new Tagify(input)
-</script>
+
 
 
 <!--end::Script-->
